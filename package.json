@@ -1,0 +1,40 @@
+{
+  "name": "use-toggle-many",
+  "version": "1.0.1",
+  "description": "React hook for toggling multiple items in a single component",
+  "main": "lib/index.js",
+  "typings": "src/index.d.ts",
+  "scripts": {
+    "test": "yarn jest",
+    "build": "babel ./src --out-dir ./lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:dankoknad/use-toggle-many.git"
+  },
+  "keywords": [
+    "toggle",
+    "react-hook",
+    "react",
+    "state-management"
+  ],
+  "author": "Danko Milutinovic (dankomilutinovic@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dankoknad/use-toggle-many/issues"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "homepage": "https://github.com/dankoknad/use-toggle-many",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "jest": "^23.6.0",
+    "react": "16.8.3"
+  }
+}
