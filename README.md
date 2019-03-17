@@ -31,7 +31,7 @@ arr?: (number | string)[]
 
 Basic usage: [demo](https://codesandbox.io/s/xow466o03o)
 
-With initiall values set and optionall variable `active` used: [demo](https://x74q4wqqvo.codesandbox.io/) 
+With initiall values set and optionall variable `active` used: [demo](https://codesandbox.io/s/x74q4wqqvo) 
 
 ## Examples
 
