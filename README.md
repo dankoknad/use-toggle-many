@@ -1,12 +1,14 @@
 # useToggleMany - custom react hook
 
-Install with yarn:
+## Install:
+
+With yarn:
 
 ```bash
 yarn add use-toggle-many -S
 ```
 
-Or with npm:
+With npm:
 
 ```bash
 npm i use-toggle-many -S
@@ -24,14 +26,14 @@ isActive: `(idOrIndex: string | number) => boolean`
 
 active: `Array<string | number>`
 
-arr?: (number | string)[]
+arr?: `(number | string)[]`
 
 
 ## Demos
 
 Basic usage: [demo](https://codesandbox.io/s/xow466o03o)
 
-With initiall values set and optionall variable `active` used: [demo](https://x74q4wqqvo.codesandbox.io/) 
+With initiall values set and optionall variable `active` used: [demo](https://codesandbox.io/s/x74q4wqqvo) 
 
 ## Examples
 
@@ -58,8 +60,7 @@ function SomeComponent({ fruits }) {
               onChange={() => handleActive(fruit)}
               checked={isActive(fruit)}
             />
-            {fruit}: {isActive(fruit) ? "on" : "off"} - toggle by index ({fruit}
-            )
+            {fruit}: {isActive(fruit) ? "on" : "off"} - toggle by name ({fruit})
           </li>
         ))}
       </ul>
@@ -86,19 +87,19 @@ import React, { useState } from 'react'
 import { useToggleMany } from 'use-toggle-many'
 
 function SomeComponent() {
-  const [handleActive, isActive, active] = useToggleMany([0, 1, 2, 6, 7])
+  const [handleActive, isActive, active] = useToggleMany([0, 2, 4, 14])
 
   return (
     <div>
       <ul>
-        {'InLoveWithHooks'.split('').map((char, index) => (
-          <li key={index} style={{ color: isActive(index) ? "red" : "blue" }}>
+        {"INLLOVEWITHHOOKS".split("").map((char, index) => (
+          <li key={index} style={{ color: isActive(index) ? "#6ada55" : "#222" }}>
             <input
               type="checkbox"
               onChange={() => handleActive(index)}
               checked={isActive(index)}
             />
-            {char}: {isActive(index) ? "on" : "off"} - toggle by index ({index})
+            {char}: {isActive(index) ? "on" : "off"} - index ({index})
           </li>
         ))}
       </ul>
