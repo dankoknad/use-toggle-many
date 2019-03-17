@@ -1,6 +1,6 @@
 # useToggleMany - custom react hook
 
-Install it with yarn:
+Install with yarn:
 
 ```bash
 yarn add use-toggle-many -S
@@ -11,6 +11,21 @@ Or with npm:
 ```bash
 npm i use-toggle-many -S
 ```
+
+## Api:
+
+```javascript
+const [handleActive, isActive, active] = useToggleMany(arr)
+```
+
+handleActive:  `(idOrIndex: string | number) => void`
+
+isActive: `(idOrIndex: string | number) => boolean`
+
+active: `Array<string | number>`
+
+arr?: (number | string)[]
+
 
 ## Demos
 
