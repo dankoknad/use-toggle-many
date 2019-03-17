@@ -1,26 +1,74 @@
-# useToggleMany react hook
+# useToggleMany - custom react hook
 
 Install it with yarn:
 
-```
-not ready yet
+```bash
+yarn add use-toggle-many -S
 ```
 
 Or with npm:
 
-```
-not ready yet
+```bash
+npm i use-toggle-many -S
 ```
 
 ## Demos
 
-Will be added
+Basic usage: [demo](https://codesandbox.io/s/xow466o03o)
 
-## Simple example
+With initiall values set and optionall variable `active` used: [demo](https://x74q4wqqvo.codesandbox.io/) 
+
+## Examples
+
+Basic:
 
 ```javascript
-import React, { useState } from 'react';
-import { useToggleMany } from 'use-toggle-many';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { useToggleMany } from 'use-toggle-many'
+
+function SomeComponent({ fruits }) {
+  const [handleActive, isActive] = useToggleMany()
+
+  return (
+    <div>
+      <ul>
+        {fruits.map(fruit => (
+          <li
+            key={fruit}
+            style={{ color: isActive(fruit) ? "#6ada55" : "#222" }}
+          >
+            <input
+              type="checkbox"
+              onChange={() => handleActive(fruit)}
+              checked={isActive(fruit)}
+            />
+            {fruit}: {isActive(fruit) ? "on" : "off"} - toggle by index ({fruit}
+            )
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <div className="container">
+      <SomeComponent
+        fruits={["Grapefruit", "Pineapple", "Avocado", "Blueberries"]}
+      />
+    </div>
+  )
+}
+
+```
+
+With `initiallState` and active variable `used`:
+
+```javascript
+import React, { useState } from 'react'
+import { useToggleMany } from 'use-toggle-many'
 
 function SomeComponent() {
   const [handleActive, isActive, active] = useToggleMany([0, 1, 2, 6, 7])
@@ -28,7 +76,7 @@ function SomeComponent() {
   return (
     <div>
       <ul>
-        {"InLoveWithHooks".split("").map((char, index) => (
+        {'InLoveWithHooks'.split('').map((char, index) => (
           <li key={index} style={{ color: isActive(index) ? "red" : "blue" }}>
             <input
               type="checkbox"
@@ -40,8 +88,17 @@ function SomeComponent() {
         ))}
       </ul>
 
-      <p>Currently active: {active.length}<p/>
+      <p>Currently active: {active.length}</p>
     </div>
   )
 }
+
+function App() {
+  return (
+    <div className="container">
+      <SomeComponent />
+    </div>
+  )
+}
+
 ```
