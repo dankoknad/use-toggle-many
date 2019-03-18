@@ -3,5 +3,6 @@ export default function useToggleMany(
 ): [
   (idOrIndex: string | number) => void,
   (idOrIndex: string | number) => boolean,
-  Array<string | number>
+  Array<string | number>,
+  (arr: (string | number)[]) => void
 ];

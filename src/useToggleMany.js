@@ -12,5 +12,7 @@ export default function useToggleMany(arr) {
 
   const isActive = (idOrIndex) => active.indexOf(idOrIndex) > -1;
 
-  return [handleActive, isActive, active];
+  const handleMany = (arr) => setActive(arr);
+
+  return [handleActive, isActive, active, handleMany];
 }

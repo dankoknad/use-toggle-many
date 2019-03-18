@@ -92,7 +92,7 @@ function SomeComponent() {
   return (
     <div>
       <ul>
-        {"INLLOVEWITHHOOKS".split("").map((char, index) => (
+        {"INLOVEWITHHOOKS".split("").map((char, index) => (
           <li key={index} style={{ color: isActive(index) ? "#6ada55" : "#222" }}>
             <input
               type="checkbox"
