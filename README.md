@@ -17,7 +17,7 @@ npm i use-toggle-many -S
 ## Api:
 
 ```javascript
-const [handleActive, isActive, active] = useToggleMany(arr)
+const [handleActive, isActive, active, handleMany] = useToggleMany(arr)
 ```
 
 handleActive:  `(idOrIndex: string | number) => void`
@@ -26,6 +26,8 @@ isActive: `(idOrIndex: string | number) => boolean`
 
 active: `Array<string | number>`
 
+handleMany: `(arr: (string | number)[]) => void`
+
 arr?: `(number | string)[]`
 
 
@@ -33,7 +35,9 @@ arr?: `(number | string)[]`
 
 Basic usage: [demo](https://codesandbox.io/s/xow466o03o)
 
-With initiall values set and optionall variable `active` used: [demo](https://codesandbox.io/s/x74q4wqqvo) 
+With initiall values set and optionall variable `active` used: [demo](https://codesandbox.io/s/x74q4wqqvo)
+
+With "clear all" and "update many at once" buttons: [demo](https://codesandbox.io/s/m94q1q9x3j)
 
 ## Examples
 
@@ -68,19 +72,9 @@ function SomeComponent({ fruits }) {
   )
 }
 
-function App() {
-  return (
-    <div className="container">
-      <SomeComponent
-        fruits={["Grapefruit", "Pineapple", "Avocado", "Blueberries"]}
-      />
-    </div>
-  )
-}
-
 ```
 
-With `initiallState` and active variable `used`:
+With `initiallState` and `active` variable used:
 
 ```javascript
 import React, { useState } from 'react'
@@ -109,12 +103,36 @@ function SomeComponent() {
   )
 }
 
-function App() {
-  return (
-    <div className="container">
-      <SomeComponent />
-    </div>
-  )
-}
+```
 
+With "clear all" and "update many at once" buttons:
+
+```javascript
+function SomeComponent({ fruits }) {
+  const [handleActive, isActive, active, handleMany] = useToggleMany();
+
+  return (
+    <div>
+      <ul>
+        {fruits.map(fruit => (
+          <li
+            key={fruit}
+            style={{ color: isActive(fruit) ? "#6ada55" : "#222" }}
+          >
+            <input
+              type="checkbox"
+              onChange={() => handleActive(fruit)}
+              checked={isActive(fruit)}
+            />
+            {fruit}: {isActive(fruit) ? "on" : "off"} - toggle by name ({fruit})
+          </li>
+        ))}
+      </ul>
+      <button onClick={() => handleMany([])}>Clear all</button>
+      <button onClick={() => handleMany(["Grapefruit", "Blueberries"])}>
+        Set Grapefruit & Blueberries
+      </button>
+    </div>
+  );
+}
 ```
