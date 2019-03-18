@@ -105,7 +105,7 @@ function SomeComponent() {
 
 ```
 
-With "clear all" and "update many at once" buttons:
+With "clear all" and "update many at once" buttons (`handleMany`):
 
 ```javascript
 function SomeComponent({ fruits }) {
