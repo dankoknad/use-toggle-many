@@ -35,9 +35,9 @@ arr?: `(number | string)[]`
 
 Basic usage: [demo](https://codesandbox.io/s/xow466o03o)
 
-With initiall values set and optionall variable `active` used: [demo](https://codesandbox.io/s/x74q4wqqvo)
+With `initiallState` and `active` variable used: [demo](https://codesandbox.io/s/x74q4wqqvo)
 
-With "clear all" and "update many at once" buttons: [demo](https://codesandbox.io/s/m94q1q9x3j)
+With "clear all" and "update many at once" buttons (`handleMany`): [demo](https://codesandbox.io/s/m94q1q9x3j)
 
 ## Examples
 
